@@ -1,0 +1,15 @@
+{
+    "presets": [
+        ["env",{
+            "targets": {
+                "browsers": ["IE >= 9"]
+            },
+            "useBuiltIns": true
+        }],
+        "react",
+        "stage-2"
+    ],
+    "plugins": [
+        ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
+    ]
+}
