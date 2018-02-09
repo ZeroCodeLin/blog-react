@@ -3,7 +3,7 @@ import {Button} from 'antd'
 import { connect } from 'react-redux';
 
 @connect(({ example }) => ({
-   
+    example
 }))
 class Hello extends Component{
     

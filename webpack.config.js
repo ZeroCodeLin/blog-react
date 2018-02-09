@@ -17,6 +17,14 @@ module.exports = {
                 use:["style-loader","css-loader"]
             },
             {
+                test: /\.less$/,
+                use: [
+                  'style-loader',
+                  { loader: 'css-loader', options: { importLoaders: 1 } },
+                  'less-loader'
+                ]
+            },
+            {
                 test:/\.(js|jsx)$/,
                 use:"babel-loader",
                 exclude:/node_modules/
