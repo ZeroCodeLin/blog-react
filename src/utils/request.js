@@ -1,27 +1,17 @@
-import fetch from 'whatwg-fetch';
+import 'whatwg-fetch';
 
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
 
-  // if (response.status == 403 ) {
-  //   location.href ='#/403'
-  //   return response;
-  // }
 
   return response.json().then((result) => {
     if (result.code) {
-    //   notification.error({
-    //     message: result.name,
-    //     description: result.message,
-    //   });
+
     }
     if (result.stack) {
-    //   notification.error({
-    //     message: '请求错误',
-    //     description: result.message,
-    //   });
+
     }
     const error = new Error(result.message);
     error.response = response;

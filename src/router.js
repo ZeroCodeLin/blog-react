@@ -9,7 +9,7 @@ const RouterConfig = (props)=>{
         <HashRouter>
             <div>
 
-                <Route exact path="/" component={BasicLayout}/>
+                <Route  path="/" component={BasicLayout}/>
             </div>
         </HashRouter>
     )

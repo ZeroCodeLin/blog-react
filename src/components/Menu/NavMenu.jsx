@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon, Menu, Row, Col } from 'antd';
+import {BrowserRouter as Router,Route,Link,HashRouter} from 'react-router-dom'
 
 import styles from './NavMenu.less'
 
@@ -24,24 +25,19 @@ class BasicLayout extends React.PureComponent {
                 mode="horizontal"
                 className="nav"
             >
-                <Menu.Item key="mail">
-                    <Icon type="mail" />Navigation One
+                <Menu.Item key="home">
+                    <Link to="/Demo" />
+                    <Icon type="home" />首页
                 </Menu.Item>
-                <Menu.Item key="app" disabled>
-                    <Icon type="appstore" />Navigation Two
+                <Menu.Item key="code">
+                    <Link to="/" />
+                    <Icon type="code" />Code
                 </Menu.Item>
-                <SubMenu title={<span><Icon type="setting" />Navigation Three - Submenu</span>}>
-                    <MenuItemGroup title="Item 1">
-                        <Menu.Item key="setting:1">Option 1</Menu.Item>
-                        <Menu.Item key="setting:2">Option 2</Menu.Item>
-                    </MenuItemGroup>
-                    <MenuItemGroup title="Item 2">
-                        <Menu.Item key="setting:3">Option 3</Menu.Item>
-                        <Menu.Item key="setting:4">Option 4</Menu.Item>
-                    </MenuItemGroup>
-                </SubMenu>
                 <Menu.Item key="alipay">
-                    <a href="https://ant.design" target="_blank" rel="noopener noreferrer">Navigation Four - Link</a>
+                    <Icon type="file-text" />随笔
+                </Menu.Item>
+                <Menu.Item key="me">
+                    <Icon type="info-circle-o" />关于我
                 </Menu.Item>
             </Menu>
         );

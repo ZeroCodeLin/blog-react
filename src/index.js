@@ -7,7 +7,6 @@ import { Provider } from 'react-redux';
 import example from './reducers/example'
 // 安装redux-devtools-extension的可视化工具。
 import { composeWithDevTools } from 'redux-devtools-extension'
-
 const reducer = combineReducers({ example })
 
 let store = createStore(reducer,composeWithDevTools())
