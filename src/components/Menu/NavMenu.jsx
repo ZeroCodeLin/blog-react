@@ -26,11 +26,11 @@ class BasicLayout extends React.PureComponent {
                 className="nav"
             >
                 <Menu.Item key="home">
-                    <Link to="/Demo" />
+                    <Link to="/home" />
                     <Icon type="home" />首页
                 </Menu.Item>
                 <Menu.Item key="code">
-                    <Link to="/" />
+                    <Link to="/code" />
                     <Icon type="code" />Code
                 </Menu.Item>
                 <Menu.Item key="alipay">
