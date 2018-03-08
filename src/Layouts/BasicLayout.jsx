@@ -5,7 +5,9 @@ import {BrowserRouter as Router,Route,Link,HashRouter} from 'react-router-dom'
 import QueueAnim from 'rc-queue-anim';
 
 import Menu from '../components/Menu/NavMenu.jsx'
-import Demo from '../routes/Hello.jsx'
+import Home from '../routes/Home/Home.jsx';
+import Detail from '../components/Essay/Detail.jsx';
+import Demo from '../routes/Hello.jsx';
 import styles from './BasicLayout.less'
 const { Header, Content, Footer } = Layout;
 
@@ -23,26 +25,26 @@ class BasicLayout extends React.PureComponent {
     render() {
         return (
             <Layout>
-                <Header style={{ background: '#fff' }} >
-                    <Row >
-                        <Col span={12} offset={3}>
+                <Header className="header" >
+                    <Row type="flex" justify="center">
+                        <Col span={16}>
                             <Menu />
                         </Col>
                     </Row>
                     
                 </Header>
-                <Content>
-                    <Route exact path="/Demo" component={Demo}/>
-                    <QueueAnim leaveReverse={true} >
-                        
-                        
-                        <div key="demo1">依次进场</div>
-                        <div key="demo2">依次进场</div>
-                        <div key="demo3">依次进场</div>
-                        <div key="demo4">依次进场</div>
-                    </QueueAnim>
+                <Content className="container" >
+                    <Row type="flex" justify="center">
+                        <Col span={16}>
+                            <Route exact path="/home" component={Home}/>
+                            <Route exact path="/detail" component={Detail}/>
+                            <Route exact path="/Demo" component={Demo}/>
+                        </Col>
+                    </Row>
+                    
+                   
                 </Content>
-                <Footer>Footer</Footer>
+                <Footer className="footer" >Copyright © 2017 lemon.</Footer>
             </Layout>
         );
     }
