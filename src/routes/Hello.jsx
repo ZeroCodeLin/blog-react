@@ -19,12 +19,22 @@ import request from '../utils/request'
 class Hello extends Component{
     
     componentDidMount(){
-        request('api/test',{method:'get',headers:{Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibGVtb24iLCJpYXQiOjE1MTk4OTc0MDMsImV4cCI6MTUxOTkwMTAwM30.2bevEfIH__W_COEd4X6lDm6jlJPFFRxXhxw1nqKXbj4'}})
+        console.log(this.props)
+       
+        // request('api/test',{method:'get',headers:{Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibGVtb24iLCJpYXQiOjE1MTk4OTc0MDMsImV4cCI6MTUxOTkwMTAwM30.2bevEfIH__W_COEd4X6lDm6jlJPFFRxXhxw1nqKXbj4'}})
+    }
+
+    demo= ()=>{
+        const { dispatch } = this.props;
+
+        dispatch({
+            type: 'add'
+        })
     }
 
     render(){
         return (
-            <h1>Hello World!</h1>
+            <h1>Hello World!{this.props.example}<Button onClick={this.demo} >demo</Button></h1>
         )
     }
 }

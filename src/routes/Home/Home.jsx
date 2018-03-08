@@ -3,6 +3,7 @@ import { Card, Button } from 'antd'
 import { connect } from 'react-redux';
 
 import request from '../../utils/request'
+import { blogList } from '../../services/api'
 
 import Essay from '../../components/Essay/Essay.jsx'
 const arr = [1,2,3,4,5,6,7,8]
@@ -15,17 +16,28 @@ const json = {
     example
 }))
 class Home extends Component{
+
+    state={
+        data: []
+    }
     
     componentDidMount(){
-        
+        blogList().then(data => {
+            if(data.code){
+                this.setState({
+                    data: data.data
+                })
+            }
+        })
     }
 
     render(){
+        const { data } = this.state;
         return (
             <div >
                 {
-                    arr.map(item =>{
-                        return <Essay essay={json} />
+                    data.map(item =>{
+                        return <Essay essay={item} />
                     })
                 }
             </div>
