@@ -1,5 +1,5 @@
 import React,{Component} from "react"
-import { Card, Button } from 'antd'
+import { Card, Button, Pagination } from 'antd'
 import { connect } from 'react-redux';
 
 import request from '../../utils/request'
@@ -18,21 +18,51 @@ const json = {
 class Home extends Component{
 
     state={
-        data: []
+        data: [],
+        pagination:{
+            page:1,
+            pageSize:10
+        }
     }
     
     componentDidMount(){
-        blogList().then(data => {
+        const params ={
+            page: 1,
+            pageSize: 10,
+        }
+        blogList(params).then(data => {
             if(data.code){
                 this.setState({
-                    data: data.data
+                    data: data.data,
+                    pagination:{
+                        ...this.state.pagination,
+                        total: data.total
+                    }
+                })
+            }
+        })
+    }
+
+    change=(page, pageSize)=>{
+        const params ={
+            page,
+            pageSize
+        }
+        blogList(params).then(data => {
+            if(data.code){
+                this.setState({
+                    data: data.data,
+                    pagination:{
+                        ...this.state.pagination,
+                        total: data.total
+                    }
                 })
             }
         })
     }
 
     render(){
-        const { data } = this.state;
+        const { data, pagination } = this.state;
         return (
             <div >
                 {
@@ -40,6 +70,9 @@ class Home extends Component{
                         return <Essay essay={item} />
                     })
                 }
+                <div style={{textAlign:"center"}} >
+                    <Pagination onChange={this.change} {...pagination} />
+                </div>
             </div>
         )
     }
