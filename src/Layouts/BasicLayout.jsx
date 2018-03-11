@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Layout, Icon, message, Row, Col } from 'antd';
+import { Layout, Icon, message, Row, Col, BackTop } from 'antd';
 import {BrowserRouter as Router,Route,Link,HashRouter} from 'react-router-dom'
 import QueueAnim from 'rc-queue-anim';
 
@@ -34,6 +34,7 @@ class BasicLayout extends React.PureComponent {
                     
                 </Header>
                 <Content className="container" >
+                <BackTop className="back-top" />
                     <Row type="flex" justify="center">
                         <Col span={16}>
                             <Route exact path="/home" component={Home}/>
