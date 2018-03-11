@@ -1,10 +1,11 @@
 import React,{Component} from "react"
 import { Card, Button } from 'antd'
 import { connect } from 'react-redux';
-import { dateFormat } from '../../utils/utils'
+import { dateFormat, getParam } from '../../utils/utils'
 import style from './Essay.less'
 import MyIcon from '../Icon/MyIcon.jsx'
 import { essayDetail } from '../../services/api'
+import Highlight from 'react-highlight';
 
 const essay = {
     title: '我是tiltle',
@@ -17,9 +18,11 @@ export default class Detail extends React.PureComponent {
     }
 
     componentDidMount(){
-        console.log(this.props)
+        const params = {
+            id: getParam(this.props.location.search,'id')
+        };
         const { location } = this.props;
-        essayDetail({id:1}).then(data => {
+        essayDetail(params).then(data => {
             console.log(data,'detail')
             this.setState({
                 data: data.data
@@ -37,9 +40,11 @@ export default class Detail extends React.PureComponent {
                     <h1>{title}</h1>
                     <p className="time" ><MyIcon type="icon-test" /> {dateFormat('yyyy年MM月dd日', gmt_created)}</p>
                     <h4>{description}</h4>
-                    <div dangerouslySetInnerHTML={{__html: `${content}`}} />
+                    <Highlight innerHTML={true}>
+                        {content}
+                    </Highlight>
                 </div>
-                <a onClick={()=>this.props.history.goBack()} >返回~</a>
+                <a onClick={()=>this.props.history.goBack()} >风紧扯呼～</a>
             </Card>
         )
     }
