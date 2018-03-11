@@ -67,7 +67,7 @@ class Home extends Component{
             <div >
                 {
                     data.map(item =>{
-                        return <Essay essay={item} />
+                        return <Essay essay={item}  key={item.id} />
                     })
                 }
                 <div style={{textAlign:"center"}} >
