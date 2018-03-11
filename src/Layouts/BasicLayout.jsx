@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Layout, Icon, message, Row, Col, BackTop } from 'antd';
-import {BrowserRouter as Router,Route,Link,HashRouter} from 'react-router-dom'
+import {BrowserRouter as Router,Route,Link,HashRouter, Redirect} from 'react-router-dom'
 import QueueAnim from 'rc-queue-anim';
 
 import Menu from '../components/Menu/NavMenu.jsx'
@@ -40,6 +40,7 @@ class BasicLayout extends React.PureComponent {
                             <Route exact path="/home" component={Home}/>
                             <Route exact path="/detail" component={Detail}/>
                             <Route exact path="/Demo" component={Demo}/>
+                            <Route path="/" render={() => (<Redirect to="/home"/>)}></Route >
                         </Col>
                     </Row>
                     
