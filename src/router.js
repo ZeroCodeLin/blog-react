@@ -7,10 +7,7 @@ const RouterConfig = (props)=>{
 
     return (
         <HashRouter>
-            <div>
-
-                <Route  path="/" component={BasicLayout}/>
-            </div>
+            <Route  path="/" component={BasicLayout}/>
         </HashRouter>
     )
 }
