@@ -1,5 +1,5 @@
-import react,{Component} from 'react'
-import {Button} from 'antd'
+import React,{ Component } from 'react'
+import { Button } from 'antd'
 
 import style from './error.less'
 import img from '../../assets/403.svg'

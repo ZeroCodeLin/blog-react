@@ -1,4 +1,4 @@
-import React,{Component} from "react"
+import React,{ Component, Fragment } from "react"
 import { Card, Button, Pagination } from 'antd'
 import { connect } from 'react-redux';
 
@@ -31,7 +31,7 @@ class Home extends Component{
             pageSize: 10,
         }
         blogList(params).then(data => {
-            if(data.code){
+            if(data.status == 'success'){
                 this.setState({
                     data: data.data,
                     pagination:{
@@ -63,16 +63,26 @@ class Home extends Component{
 
     render(){
         const { data, pagination } = this.state;
+        console.log(data)
         return (
             <div >
                 {
-                    data.map(item =>{
-                        return <Essay essay={item}  key={item.id} />
-                    })
+                    data.length >0?(
+                        <Fragment>
+                            {
+                                data.map(item =>{
+                                    return <Essay essay={item}  key={item.id} />
+                                })
+                            }
+                            <div style={{textAlign:"center"}} >
+                                <Pagination onChange={this.change} {...pagination} />
+                            </div>
+                        </Fragment>
+                    ):(
+                        <div>文章正在路上。。。</div>
+                    )
                 }
-                <div style={{textAlign:"center"}} >
-                    <Pagination onChange={this.change} {...pagination} />
-                </div>
+                
             </div>
         )
     }

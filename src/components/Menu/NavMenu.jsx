@@ -24,6 +24,7 @@ class BasicLayout extends React.PureComponent {
                 onClick={this.handleClick}
                 mode="horizontal"
                 className="nav"
+                defaultSelectedKeys={['home']}
             >
                 <Menu.Item key="home">
                     <Link to="/home" />
@@ -36,7 +37,7 @@ class BasicLayout extends React.PureComponent {
                 <Menu.Item key="alipay">
                     <Icon type="file-text" />随笔
                 </Menu.Item>
-                <Menu.Item key="me">
+                <Menu.Item key="about">
                     <Icon type="info-circle-o" />关于我
                 </Menu.Item>
             </Menu>

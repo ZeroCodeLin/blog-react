@@ -8,6 +8,7 @@ import Menu from '../components/Menu/NavMenu.jsx'
 import Home from '../routes/Home/Home.jsx';
 import Detail from '../components/Essay/Detail.jsx';
 import Demo from '../routes/Hello.jsx';
+import Error from '../routes/Exception/403.js';
 import styles from './BasicLayout.less'
 
 import NotFound from '../routes/Exception/404'
@@ -19,7 +20,7 @@ class BasicLayout extends React.PureComponent {
         current: 'mail',
       }
       handleClick = (e) => {
-        console.log('click ', e);
+       
         this.setState({
           current: e.key,
         });
@@ -43,8 +44,9 @@ class BasicLayout extends React.PureComponent {
                                 <Route exact path="/home" component={Home}/>
                                 <Route exact path="/detail" component={Detail}/>
                                 <Route exact path="/Demo" component={Demo}/>
+                                <Route exact path="/403" component={Error}/>
                                 
-                                
+                                <Redirect exact from="/" to='/home' />
                                 <Route exact  component={NotFound} />
                             </Switch>
                         </Col>
@@ -52,7 +54,7 @@ class BasicLayout extends React.PureComponent {
                     
                    
                 </Content>
-                <Footer className="footer" >Copyright © 2017 lemon.</Footer>
+                <Footer className="footer" >Copyright © 2017 Zero.</Footer>
             </Layout>
         );
     }

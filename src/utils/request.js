@@ -45,7 +45,7 @@ export default function request(url, options) {
   return fetch(url, newOptions)
     .then(checkStatus)
     .then(response => response.json())
-    .catch(err => ({ err }))
+    .catch(err => location.href= '#/403')
     // .then(data => {
     //   console.log(data,'success')
     //   return data;
