@@ -1,7 +1,7 @@
 import React,{Component} from "react"
 import { Card, Button } from 'antd'
 import { connect } from 'react-redux';
-import { dateFormat, getParam } from '../../utils/utils'
+import { dateFormat, getParam, loadChangyan } from '../../utils/utils'
 import style from './Essay.less'
 import MyIcon from '../Icon/MyIcon.jsx'
 import { essayDetail } from '../../services/api'
@@ -28,6 +28,7 @@ export default class Detail extends React.PureComponent {
                 data: data.data
             })
         })
+        loadChangyan()
     }
 
     render(){
@@ -45,6 +46,8 @@ export default class Detail extends React.PureComponent {
                     </Highlight>
                 </div>
                 <a onClick={()=>this.props.history.goBack()} >风紧扯呼～</a>
+                <div id="SOHUCS" sid={`${essay.id}`} ></div>
+
             </Card>
         )
     }

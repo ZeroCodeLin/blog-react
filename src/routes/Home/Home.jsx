@@ -63,7 +63,6 @@ class Home extends Component{
 
     render(){
         const { data, pagination } = this.state;
-        console.log(data)
         return (
             <div >
                 {

@@ -7,7 +7,7 @@ import QueueAnim from 'rc-queue-anim';
 import Menu from '../components/Menu/NavMenu.jsx'
 import Home from '../routes/Home/Home.jsx';
 import Detail from '../components/Essay/Detail.jsx';
-import Demo from '../routes/Hello.jsx';
+import About from '../routes/About.jsx';
 import Error from '../routes/Exception/403.js';
 import styles from './BasicLayout.less'
 
@@ -43,7 +43,7 @@ class BasicLayout extends React.PureComponent {
                             <Switch>
                                 <Route exact path="/home" component={Home}/>
                                 <Route exact path="/detail" component={Detail}/>
-                                <Route exact path="/Demo" component={Demo}/>
+                                <Route exact path="/about" component={About}/>
                                 <Route exact path="/403" component={Error}/>
                                 
                                 <Redirect exact from="/" to='/home' />
@@ -54,7 +54,7 @@ class BasicLayout extends React.PureComponent {
                     
                    
                 </Content>
-                <Footer className="footer" >Copyright © 2017 Zero.</Footer>
+                <Footer className="footer" >Copyright © 2017 Zero. <a href="">浙ICP备17022701号-2</a></Footer>
             </Layout>
         );
     }

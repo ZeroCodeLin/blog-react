@@ -30,14 +30,15 @@ class BasicLayout extends React.PureComponent {
                     <Link to="/home" />
                     <Icon type="home" />首页
                 </Menu.Item>
-                <Menu.Item key="code">
+                <Menu.Item key="code" disabled >
                     <Link to="/code" />
                     <Icon type="code" />Code
                 </Menu.Item>
-                <Menu.Item key="alipay">
+                <Menu.Item key="alipay" disabled > 
                     <Icon type="file-text" />随笔
                 </Menu.Item>
-                <Menu.Item key="about">
+                <Menu.Item key="about" disabled >
+                    <Link to="/about" />                
                     <Icon type="info-circle-o" />关于我
                 </Menu.Item>
             </Menu>
