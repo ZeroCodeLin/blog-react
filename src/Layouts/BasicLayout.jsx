@@ -54,7 +54,7 @@ class BasicLayout extends React.PureComponent {
                     
                    
                 </Content>
-                <Footer className="footer" >Copyright © 2017 Zero. <a href="">浙ICP备17022701号-2</a></Footer>
+                <Footer className="footer" >Copyright © 2018 Zero. 浙ICP备17022701号-2</Footer>
             </Layout>
         );
     }
