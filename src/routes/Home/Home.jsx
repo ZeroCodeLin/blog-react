@@ -1,4 +1,4 @@
-import React,{ Component, Fragment } from "react"
+import React,{ PureComponent, Fragment } from "react"
 import { Card, Button, Pagination } from 'antd'
 import { connect } from 'react-redux';
 
@@ -15,7 +15,7 @@ const json = {
 @connect(({ example }) => ({
     example
 }))
-class Home extends Component{
+class Home extends PureComponent{
 
     state={
         data: [],
@@ -78,7 +78,7 @@ class Home extends Component{
                             </div>
                         </Fragment>
                     ):(
-                        <div>文章正在路上。。。</div>
+                        <div>文章正在路上。。。。</div>
                     )
                 }
                 
