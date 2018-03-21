@@ -12,10 +12,10 @@ module.exports = {
     },
     module:{
         rules:[
-            {
-                test:/\.css$/,
-                use:["style-loader","css-loader"]
-            },
+            // {
+            //     test:/\.css$/,
+            //     use:["style-loader","css-loader"]
+            // },
             {  
                 test: /\.(woff|eot|ttf|svg|png|jpg)$/,  
                 use: [  
@@ -28,7 +28,7 @@ module.exports = {
                 ]  
             },
             {
-                test: /\.less$/,
+                test: /\.(css|less)$/,
                 use: [
                     'style-loader',
                     { 
@@ -47,6 +47,11 @@ module.exports = {
     },
     plugins:[
         new HtmlWebpackPlugin({template:'./src/index.html'}),
+        // new webpack.optimize.UglifyJsPlugin({
+        //     compress: {
+        //       warnings: false
+        //     }
+        // }),
     ],
     devServer:{
         contentBase: path.join(__dirname, "dist"),

@@ -11,17 +11,17 @@ module.exports = {
     ,
     output:{
         path:path.resolve(__dirname,'dist'),
-        filename:'bundle.js'
+        filename:'bundle.[hash:4].js'
     },
     module:{
         rules:[
-            {
-                test:/\.css$/,
-                use:ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ["css-loader"]
-                })
-            },
+            // {
+            //     test:/\.css$/,
+            //     use:ExtractTextPlugin.extract({
+            //         fallback: 'style-loader',
+            //         use: ["css-loader"]
+            //     })
+            // },
             {  
                 test: /\.(woff|eot|ttf|svg|png|jpg)$/,  
                 use: [  
@@ -29,12 +29,14 @@ module.exports = {
                         loader: 'url-loader',  
                         options: {  
                             limit: '1024' ,
-                        }  
+                            name: '[name].[hash:4].[ext]'  
+                        }
+                        
                     },  
                 ]  
             },
             {
-                test: /\.less$/,
+                test: /\.(css|less)$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: ["css-loader","less-loader"]
@@ -47,16 +49,20 @@ module.exports = {
             }
         ]
     },
+    devtool: false,
     plugins:[
         new HtmlWebpackPlugin({template:'./src/index.html'}),
+        new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
             name:'vendors',
-            filename:'[name][hash:8].js'
+            filename:'[name].[hash:4].js'
         }),
         new ExtractTextPlugin("style.css"),
         new webpack.optimize.UglifyJsPlugin({
             compress: {
-              warnings: false
+                warnings: false,
+                drop_console: true,
+                pure_funcs: ['console.log']
             }
         }),
         new webpack.DefinePlugin({
